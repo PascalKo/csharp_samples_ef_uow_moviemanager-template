@@ -23,8 +23,10 @@ namespace MovieManager.Core
                 Category category = new Category();
 
                 string[] part = lines[i].Split(';');
+                category.CategoryName = part[1];
+                
 
-                Movie movie = new Movie(part[0], category, Convert.ToInt32(part[2]), Convert.ToInt32(part[3]), Convert.ToInt32(part[4]));
+                Movie movie = new Movie(part[0], Convert.ToInt32(part[2]), Convert.ToInt32(part[3]), Convert.ToInt32(part[4]));
             }
             return default;
         }

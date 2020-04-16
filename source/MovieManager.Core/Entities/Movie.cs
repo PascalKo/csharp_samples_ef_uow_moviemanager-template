@@ -20,10 +20,9 @@ namespace MovieManager.Core.Entities
         [Required]
         public int Year { get; set; }
 
-        public Movie(string title,Category category,int categoryId,int duration,int year)
+        public Movie(string title,int categoryId,int duration,int year)
         {
             Title = title;
-            Category = category;
             CategoryId = categoryId;
             Duration = duration;
             Year = year;
