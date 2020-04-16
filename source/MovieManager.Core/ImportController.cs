@@ -1,6 +1,8 @@
 ﻿using MovieManager.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using Utils;
 
 namespace MovieManager.Core
 {
@@ -13,8 +15,18 @@ namespace MovieManager.Core
         /// </summary>
         public static IEnumerable<Movie> ReadFromCsv()
         {
-            throw new NotImplementedException();
-        }
+            string[] lines = File.ReadAllLines(Filename);
 
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                Category category = new Category();
+
+                string[] part = lines[i].Split(';');
+
+                Movie movie = new Movie(part[0], category, Convert.ToInt32(part[2]), Convert.ToInt32(part[3]), Convert.ToInt32(part[4]));
+            }
+            return default;
+        }
     }
 }
